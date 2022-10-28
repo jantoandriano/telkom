@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div class="login">
+      <form action="#" method="POST" onSubmit="validasi()">
+        <div>
+          <label>Nama Developer:</label>
+          <input type="text" name="nama" id="nama" />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div>
+          <label>Phone number:</label>
+          <input type="text" name="phone" id="phone" />
+        </div>
+        <div>
+          <input type="submit" value="Daftar" class="tombol" />
+        </div>
+      </form>
+    </div>
+  </body>
+  <script type="text/javascript">
+    function validasi() {
+      var nama = document.getElementById("nama").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+      var regexNama = /^.{3,}$/;
+      var regexEmail =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var regexPhone = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
+      console.log("regexNama.test(nama", regexNama.test(nama));
+      console.log("nama", nama);
+      if (!regexNama.test(nama)) {
+        return alert("Required, min 3 character");
+      } else if (!regexEmail.test(email)) {
+        return alert("Required, value must email format Ex: telkom@gmail.com");
+      } else if (!regexPhone.test(phone)) {
+        return alert(
+          "Required, only number. Ex: 085799121111, max 14 character,min 10 character"
+        );
+      }
+      alert("Selamat anda terdaftar");
+    }
+  </script>
+</html>
